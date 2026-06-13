@@ -1,0 +1,43 @@
+  eggggggggggggggggggggggggggggggggggg##############################################
+ .zgggggggggggggg#ggggggggggg########geooooooezg####################################
+ .zggggggggggggggzzg#############ge*-.        .:-=*ozg##############################
+ :ggggggggggg#ge=:+zg#########g*-.          ..       :-o#%##########################
+ -gggggggggggz+:.:=ozg#######*.      ..:=+++===--:..    :o#%########################
+ =#ggg######g*-====*ezg###%z-. .::-+*oeg#######gggzo+-.   :e%%%%%%%######%%%#%%%%%%#
+ +##########g*-====*oez###*..:=ozg#%%%%%%%%%%%%%%%%##z*=:.  e%%%%%%%%%%%%%%%%%%%%%%%
+ *#gggggggg##o===--**eg#%+ =ez##%%%%%%%%%%%%%%%%%%%%%#gzeo+.:g%%%%%%%%##%%%%%%%%%%%%
+ og*+++++*z%%o===-=*oe#%g:=g###%%%%%%%@@@@@@@@@%%%%%%%##gzz*.-#%#####zezgg##%%%%%%%%
+ egooeeeeez##o===-=ooz#%=:*g##%%%%@@@@@@@@@@@@@@@@%%%%%##gzz= +zoooooooooe#%%%%%%%%%
+ zgezzzzzzz#go===-=ooz#e.:ogg#%%@@@@@@@@@@@@@@@@@@@@%%%%#ggz+.:**********z%#%%%#%%%%
+.ggezzzzggg##o=====oezz: :ogg#%@@@@@@@@@@@@@@@@@@@@@@@%%%#gz*:.=++++++++*g%%%%%%%%%%
+:##ezzzzggg##*=====ezze:.:oz##ggzzggg#%@@@@@@@@%##gzzzzgg#gz*:.=++++++++o#%%%%%%%%%%
+-##zzzzgggg##o=====oo*+. :ezo=:::::::-=o#%@@@%z+-::::::--+ezo:.=*+++++**z%%%%%%%%%%%
+=%#ze=o##gzggo===-+***+: :zo=++=--:::--+e#@@@#o++=-==++****ze: =********#%%%%%%%%%%%
+=oo**+e%#gzggo====+ooee+ :zee*==+::-+--+e#@@@ge*==-::===*ezze. =*******e%%%%%%%%%%%%
+:=---+z#gzzgg*==--+*oeze-:zge*+*zo+*o***z%@@@#zo*o*++eo+*ezge..=*******z%%%%%%%%%%%%
+:-:::-zg*=+*o*=:..=ezz*ze:z####gg#gzzzgg#%@@%%#geezggggg####o:+o*******#%%%%%%%%%%%%
+-=::::ego-:-+o*=-=*ooooge.e#%%@@@@%%%%%#%@@@@%%%@%%%%@@%%%%#o:zgo*****e#%%%%%%##%%%%
+:-:...=*ezo=-=+*eeoeeeozo.+#%%@@@@@@@%#%@@@@@@%%@@@@@@@@@%%#==#z******z##########ggg
+::    -=+*+-==*egeeggzezz-:g#%%@@@@@@%#g%@@@@%%%@@@@@@@@%%#e.oz*****+*g#########geo*
+..    :-=:..:-+o**ozeoezeo:o##%%@@@@%#g+o#ggo=o%@@@@@@@%%%#=+z*+++**+o##########zeo*
+:-----::--::--::-+oezzzeee**g##%%%%%%#zo*ooeeee#%@@@%%%%%%z*eeo*+++++e#%#######z**++
+::-::..::::.:-:.:=ozggzoooo+ozg##gzeeo+--=+++==+ozezg####g*+******=-=ezoozzzzzze*=--
+   ..:::....   ..=ozgge***o+=+ezz*+=++++*ooooooo**=-=egzeo+ooo**oo++**=-=+*******=--
+:-+ezze*-...     :*ooo*****o==+oe+::=+++*ooooeo**+=:-ee**-z%%####ggzzzzzeooo****+==-
+::::=*o=... .:.  :+o****+++*=:-+oo=*eeezzgzggggzzzo-oz=--=zzeeeeeeeeoooeezzeoooo**o+
+:.. .::..   .:. .-+o**++++++*=:-=o**ezzeeo***oezzo+=e=.::*eeeeeeeeeeeooeezzzeeeoo*o-
+=-:::+o**-.......:=*++++++++++=:-+=+*zzzo**+=*oeo*+==:.==*eeooeooooo*oooooeo**o**oo-
+=-:::+zeo=...:::..-+++========+=:::=++++ooooeo*=-+=:.-**:=+**ee*o****oo*****o*+====.
+oo*++oeee+:..... .-+==-=*o+=--=o=-:.:::-=++====-.:::+ez*....:=*+=-==+o*****oooo**++.
+zeeoezg##e. ..   .-=-=oee*+*=.-o+++-...:::--:....:-+ezzo--::::-+=::.....:.---*o*o*+.
+ooz##%%%%z:      .---=***oe*-.-oo*+++-:........:=*oozzg*:-=-.  .:..         -**ooo* 
+zoz%%%%%%go*+++**=:=**++*zze*::*oeee***===----=+oeeezggo::=oe+--==-:..   .  .-+***+ 
+zoz%%%%%%g**oz#%%+.-oeeozgzzge:=oezzzeeeoo****oezggzzggo=.+ozz=----==-:....  .:.... 
+zoz%%%%%%zoz%%%#g*+eze*+g#gg%#e:=oeeezzzzzzzgg###ggzg#z*+:ezzz*:::::=+-::::::::.    
+gzg####ggg###ggzzeeze*+oge++#%%e:=oezzzzzggg#####gzzgge=+g%#gzz*=-..++:..:+-....    
+eeg##gzggggzeeezezzzeooo-   +%%%z==ozggggggg####gezggg*=#@%%zzgzzeo*o+. .-+:...     
+zzzzzzzzezeoeeeeggzeoo*:.....=z%@#o*z#gggggg###geegge**#@%%%gggzzzzeee*=-==         
+zzzeezzzzezozeooeo+-:==----==-:+egzoz##gggggg#geoo*+og%%%%%#gg#ggzzoozzzze*-.       
+zgzozggggezzeo*++e+=+**********====-=*eo++==--::-*eg%%%%%%%####zzzzzzzoezzzzeo+-:.  
+zgeozggggzzzoo**ezooeeeeeeeeezzzzeooo+=*=    -*zg#g#%%%%%%e=*eggggggggeogzzzzzzze*  
+egeozzgzzggeooezgzeezzzzzzggggggggzegge**+ -z####gzzggzzze-:..-egggzzzggzggggzeeze  

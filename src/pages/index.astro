@@ -1,0 +1,24 @@
+---
+import Base from "../layouts/Base.astro";
+import Nav from "../components/Nav.astro";
+import Hero from "../components/Hero.astro";
+import ProofBar from "../components/ProofBar.astro";
+import Pillars from "../components/Pillars.astro";
+import ToolingGrid from "../components/ToolingGrid.astro";
+import Collective from "../components/Collective.astro";
+import Contact from "../components/Contact.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Base>
+  <Nav />
+  <main>
+    <Hero />
+    <ProofBar />
+    <Pillars />
+    <ToolingGrid limit={6} />
+    <Collective />
+    <Contact />
+  </main>
+  <Footer />
+</Base>

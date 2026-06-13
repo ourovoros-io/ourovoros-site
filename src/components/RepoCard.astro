@@ -1,0 +1,76 @@
+---
+import type { Repo } from "../lib/github";
+
+interface Props {
+  repo: Repo;
+}
+
+const { repo } = Astro.props;
+
+// A small, intentional palette — GitHub's full language map would be noise here.
+const LANG_DOT: Record<string, string> = {
+  Rust: "#dea584",
+  Sway: "#3fb68b",
+  Shell: "#89e051",
+  TypeScript: "#3178c6",
+  JavaScript: "#f1e05a",
+};
+const dot = repo.language ? (LANG_DOT[repo.language] ?? "#8b9099") : "#8b9099";
+
+// Year-month is honest precision for an "active" signal without implying a
+// freshness the rebuild cadence cannot guarantee.
+const updated = new Date(repo.updatedAt).toLocaleDateString("en-US", {
+  year: "numeric",
+  month: "short",
+});
+---
+
+<a
+  href={repo.url}
+  target="_blank"
+  rel="noopener noreferrer"
+  class="group flex flex-col justify-between gap-6 bg-bg p-7 transition-colors hover:bg-surface/60"
+>
+  <div>
+    <div class="flex items-start justify-between gap-4">
+      <h3
+        class="font-mono text-base text-ink transition-colors group-hover:text-accent"
+      >
+        {repo.name}
+      </h3>
+      {
+        repo.stars > 0 && (
+          <span class="flex shrink-0 items-center gap-1 font-mono text-xs text-muted">
+            <span class="text-accent">★</span>
+            {repo.stars}
+          </span>
+        )
+      }
+    </div>
+    {
+      repo.description && (
+        <p class="mt-3 text-sm leading-relaxed text-muted">
+          {repo.description}
+        </p>
+      )
+    }
+  </div>
+
+  <div class="flex items-center justify-between font-mono text-xs text-faint">
+    <span class="flex items-center gap-2">
+      {
+        repo.language && (
+          <>
+            <span
+              class="size-2 rounded-full"
+              style={`background:${dot}`}
+              aria-hidden="true"
+            />
+            {repo.language}
+          </>
+        )
+      }
+    </span>
+    <span>{updated}</span>
+  </div>
+</a>

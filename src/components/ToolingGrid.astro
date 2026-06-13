@@ -1,0 +1,58 @@
+---
+import { fetchRepos } from "../lib/github";
+import RepoCard from "./RepoCard.astro";
+
+interface Props {
+  // Homepage shows a curated slice; the /tooling page omits the limit to list
+  // everything. The "+N more" link only appears when the slice hides repos.
+  limit?: number;
+}
+
+const { limit } = Astro.props;
+const all = await fetchRepos();
+const repos = limit ? all.slice(0, limit) : all;
+const hidden = limit ? all.length - repos.length : 0;
+---
+
+<section id="tooling" class="border-b border-line">
+  <div class="mx-auto max-w-6xl px-6 py-24 sm:px-8 sm:py-28">
+    <div class="flex flex-wrap items-end justify-between gap-4">
+      <div>
+        <p class="eyebrow">Open source</p>
+        <h2 class="mt-6 font-display text-3xl font-semibold text-ink sm:text-4xl">
+          Tooling we build in the open.
+        </h2>
+        <p class="mt-4 max-w-xl leading-relaxed text-muted">
+          Every claim here is a link. Security analyzers, language tooling and
+          libraries — public on GitHub.
+        </p>
+      </div>
+      <a
+        href="https://github.com/ourovoros-io"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="font-mono text-xs tracking-wider text-muted underline-offset-4 transition-colors hover:text-accent hover:underline"
+        >github.com/ourovoros-io ↗</a
+      >
+    </div>
+
+    <div
+      class="mt-12 grid gap-px overflow-hidden rounded-md border border-line bg-line sm:grid-cols-2 lg:grid-cols-3"
+    >
+      {repos.map((repo) => <RepoCard repo={repo} />)}
+    </div>
+
+    {
+      hidden > 0 && (
+        <div class="mt-8">
+          <a
+            href="/tooling"
+            class="font-mono text-sm tracking-wider text-accent underline-offset-4 hover:underline"
+          >
+            View all {all.length} repositories →
+          </a>
+        </div>
+      )
+    }
+  </div>
+</section>

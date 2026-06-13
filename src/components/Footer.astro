@@ -1,0 +1,31 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-bg">
+  <div
+    class="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-12 sm:flex-row sm:items-center sm:justify-between sm:px-8"
+  >
+    <a href="/" class="flex items-center gap-2.5" aria-label="Ourovoros home">
+      <span
+        class="size-5 bg-muted"
+        style="mask:url(/ouroboros.svg) center/contain no-repeat;-webkit-mask:url(/ouroboros.svg) center/contain no-repeat"
+        aria-hidden="true"></span>
+      <span class="font-mono text-xs tracking-[0.18em] text-muted">OUROVOROS</span>
+    </a>
+
+    <nav class="flex gap-6 font-mono text-xs tracking-wider text-muted">
+      <a href="#approach" class="transition-colors hover:text-ink">Approach</a>
+      <a href="/tooling" class="transition-colors hover:text-ink">Tooling</a>
+      <a href="#contact" class="transition-colors hover:text-ink">Contact</a>
+      <a
+        href="https://github.com/ourovoros-io"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="transition-colors hover:text-ink">GitHub ↗</a
+      >
+    </nav>
+
+    <p class="font-mono text-xs text-faint">© {year} Ourovoros.io</p>
+  </div>
+</footer>

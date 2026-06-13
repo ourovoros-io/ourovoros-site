@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+/* Design tokens. Dark, restrained, engineering-grade: credibility comes from
+   typography and spacing, not effects. A single calm accent nods to the
+   terminal/Sway heritage and is used sparingly (links, CTA, active states). */
+@theme {
+  --color-bg: #0a0b0d;
+  --color-surface: #131519;
+  --color-surface-2: #181b20;
+  --color-ink: #e6e8eb;
+  --color-muted: #8b9099;
+  --color-faint: #5b616b;
+  --color-accent: #3fb68b;
+  --color-accent-dim: #2c7d61;
+  --color-line: #22262c;
+
+  --font-display: "Bricolage Grotesque Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Hanken Grotesk Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, monospace;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
+  }
+
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    /* Backstop against horizontal scroll from intrinsically-wide children (the
+       ASCII portraits). `clip` rather than `hidden` so position:sticky still
+       works. The real fix is min-w-0 on the grid items; this is belt-and-braces. */
+    overflow-x: clip;
+  }
+
+  ::selection {
+    background-color: var(--color-accent);
+    color: var(--color-bg);
+  }
+
+  /* Honor reduced-motion: every reveal/animation collapses to a no-op. */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  /* Low-contrast dotted grid for atmosphere without noise. */
+  .bg-grid {
+    background-image: radial-gradient(circle at 1px 1px, var(--color-line) 1px, transparent 0);
+    background-size: 32px 32px;
+  }
+
+  /* Monospace eyebrow label used for section numbers (01 / SYSTEMS DESIGN). */
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-faint);
+  }
+
+  /* Staggered load reveal. Elements set --reveal-delay inline. */
+  .reveal {
+    opacity: 0;
+    transform: translateY(12px);
+    animation: reveal 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    animation-delay: var(--reveal-delay, 0ms);
+  }
+
+  @keyframes reveal {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}

@@ -1,0 +1,44 @@
+---
+// "From audit to build" narrative as the section lead, then the two pillars that
+// define the offering. Numbered with mono eyebrows (01 / 02) for the engineering
+// cadence. Copy is factual; rigor is implied, not announced.
+const pillars = [
+  {
+    no: "01",
+    title: "Systems Design",
+    body: "Architecting novel protocols and systems from the ground up — data models, ownership, failure modes — so the hard parts are decided before a line is written.",
+  },
+  {
+    no: "02",
+    title: "Low-Level Efficiency",
+    body: "Performance-critical engineering in Rust and at the compiler and tooling level, where correctness and efficiency are the same problem.",
+  },
+];
+---
+
+<section id="approach" class="border-b border-line">
+  <div class="mx-auto max-w-6xl px-6 py-24 sm:px-8 sm:py-28">
+    <p class="eyebrow">From audit to build</p>
+    <p
+      class="mt-6 max-w-3xl font-display text-2xl leading-snug text-ink sm:text-3xl"
+    >
+      We spent years auditing protocols across Ethereum and other chains. Today
+      we apply that same discipline to building software and the tooling around
+      it.
+    </p>
+
+    <div class="mt-16 grid gap-px overflow-hidden rounded-md border border-line bg-line sm:grid-cols-2">
+      {
+        pillars.map((p) => (
+          <article class="bg-bg p-8 transition-colors hover:bg-surface/50 sm:p-10">
+            <span class="font-mono text-sm text-accent">{p.no}</span>
+            <h3 class="mt-4 font-display text-2xl font-semibold text-ink">
+              {p.title}
+            </h3>
+            <p class="mt-4 leading-relaxed text-muted">{p.body}</p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

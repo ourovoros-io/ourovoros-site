@@ -1,0 +1,70 @@
+---
+// Asymmetric hero: copy anchored left, the ouroboros mark living large and faint
+// on the right, rotating slowly — the eternal-loop motif behind the name. Load
+// reveals are staggered via --reveal-delay so the page assembles top-to-bottom.
+---
+
+<section class="relative overflow-hidden border-b border-line">
+  <div class="bg-grid absolute inset-0 opacity-60" aria-hidden="true"></div>
+  <div
+    class="pointer-events-none absolute -right-24 top-1/2 hidden -translate-y-1/2 lg:block"
+    aria-hidden="true"
+  >
+    <span
+      class="ouroboros-spin block size-[34rem] bg-accent/[0.06]"
+      style="mask:url(/ouroboros.svg) center/contain no-repeat;-webkit-mask:url(/ouroboros.svg) center/contain no-repeat"
+    ></span>
+  </div>
+
+  <div class="relative mx-auto max-w-6xl px-6 py-28 sm:px-8 sm:py-36 lg:py-44">
+    <p class="reveal eyebrow" style="--reveal-delay:0ms">
+      Ourovoros — Developers Collective
+    </p>
+
+    <h1
+      class="reveal mt-6 max-w-3xl font-display text-5xl font-semibold leading-[1.04] tracking-tight text-ink sm:text-6xl lg:text-7xl"
+      style="--reveal-delay:80ms"
+    >
+      Two senior engineers for
+      <span class="text-accent">systems design</span> and
+      <span class="text-accent">low-level efficiency</span>.
+    </h1>
+
+    <p
+      class="reveal mt-7 max-w-xl text-lg leading-relaxed text-muted"
+      style="--reveal-delay:160ms"
+    >
+      We take novel ideas and turn them into correct, efficient systems — and
+      the developer tooling around them.
+    </p>
+
+    <div
+      class="reveal mt-10 flex flex-wrap items-center gap-x-6 gap-y-4"
+      style="--reveal-delay:240ms"
+    >
+      <a
+        href="#contact"
+        class="group inline-flex items-center gap-2.5 rounded-sm bg-accent px-5 py-3 font-mono text-sm tracking-wider text-bg transition-transform hover:-translate-y-0.5"
+      >
+        START A PROJECT
+        <span class="transition-transform group-hover:translate-x-0.5">→</span>
+      </a>
+      <a
+        href="#tooling"
+        class="font-mono text-sm tracking-wider text-muted underline-offset-4 transition-colors hover:text-ink hover:underline"
+        >View our open-source tooling</a
+      >
+    </div>
+  </div>
+</section>
+
+<style>
+  .ouroboros-spin {
+    animation: ouroboros-rotate 90s linear infinite;
+  }
+  @keyframes ouroboros-rotate {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+</style>

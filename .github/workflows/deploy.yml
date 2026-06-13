@@ -43,21 +43,12 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # Idempotent: creates the Pages project on the very first run, then errors
-      # harmlessly (already exists) on every run after — hence continue-on-error.
-      - name: Ensure Pages project exists
-        uses: cloudflare/wrangler-action@ebbaa1584979971c8614a24965b4405ff95890e0 # v4.0.0
-        continue-on-error: true
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          wranglerVersion: "4.100.0"
-          command: pages project create ourovoros-site --production-branch=main
-
+      # Invoke wrangler directly via pnpm dlx rather than wrangler-action, whose
+      # package-manager detection ran `pnpm exec wrangler` against a wrangler
+      # that isn't a local dependency and failed. The Pages project already
+      # exists; wrangler authenticates from the two env vars.
       - name: Deploy to Cloudflare Pages
-        uses: cloudflare/wrangler-action@ebbaa1584979971c8614a24965b4405ff95890e0 # v4.0.0
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          wranglerVersion: "4.100.0"
-          command: pages deploy dist --project-name=ourovoros-site --branch=main
+        run: pnpm dlx wrangler@4.100.0 pages deploy dist --project-name=ourovoros-site --branch=main
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}

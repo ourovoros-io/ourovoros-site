@@ -12,6 +12,7 @@ export const SECTIONS: NavSection[] = [
   { id: "whoami", label: "whoami", command: "whoami" },
   { id: "approach", label: "approach", command: "cat approach.txt" },
   { id: "tooling", label: "tooling", command: "ls --tree ~/tooling" },
+  { id: "products", label: "products", command: "ls ~/products" },
   { id: "clients", label: "clients", command: "cat clients.txt" },
   { id: "team", label: "team", command: "cat team/*.md" },
   { id: "contact", label: "contact", command: "./contact.sh" },

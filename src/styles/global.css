@@ -1,8 +1,9 @@
 @import "tailwindcss";
 
 /* Design tokens. Dark, restrained, engineering-grade: credibility comes from
-   typography and spacing, not effects. A single calm accent nods to the
-   terminal/Sway heritage and is used sparingly (links, CTA, active states). */
+   typography and spacing, not effects. The accent is the ouroboros logo blue
+   (#0A50F0), lifted to #3a78ff so it stays legible (~4.8:1) on the near-black
+   background; used sparingly for links, the mark, and active states. */
 @theme {
   --color-bg: #0a0b0d;
   --color-surface: #131519;
@@ -10,8 +11,7 @@
   --color-ink: #e6e8eb;
   --color-muted: #8b9099;
   --color-faint: #5b616b;
-  --color-accent: #3fb68b;
-  --color-accent-dim: #2c7d61;
+  --color-accent: #3a78ff;
   --color-line: #22262c;
 
   --font-display: "Bricolage Grotesque Variable", ui-sans-serif, system-ui, sans-serif;
@@ -98,6 +98,21 @@
     from {
       opacity: 0;
       transform: translateY(4px);
+    }
+  }
+
+  /* The OUROVOROS figlet wordmark shown at the top of every terminal view.
+     Smaller on phones so the ~46-char banner never overflows the pane. */
+  .term-wordmark {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    line-height: 1.05;
+    letter-spacing: 0;
+    white-space: pre;
+  }
+  @media (min-width: 640px) {
+    .term-wordmark {
+      font-size: 11px;
     }
   }
 

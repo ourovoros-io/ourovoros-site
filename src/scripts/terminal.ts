@@ -108,6 +108,14 @@ async function navigate(id: string): Promise<void> {
   setActive(id);
   output.replaceChildren();
 
+  // The OUROVOROS wordmark heads every view. Shown instantly (it is identity,
+  // not output) with a soft fade.
+  const wordmarkEl = document.createElement("pre");
+  wordmarkEl.className = "term-wordmark term-in mb-5 text-accent select-none";
+  wordmarkEl.setAttribute("aria-hidden", "true");
+  wordmarkEl.textContent = wordmark;
+  output.appendChild(wordmarkEl);
+
   const { block, cmd } = promptLine(id);
   output.appendChild(block);
   await typeInto(cmd, section.command, 26, gen);

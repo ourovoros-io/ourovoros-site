@@ -1,0 +1,178 @@
+---
+import { fetchRepos } from "../lib/github";
+import { TEAM } from "../data/team";
+import TeamCard from "./TeamCard.astro";
+
+// Hidden, real-HTML section content. The terminal script clones a section's
+// <template> into the output area and animates its direct children in. Authoring
+// the content as real DOM (not strings in JS) keeps it crawlable and accessible.
+// Direct children of each <template> are the reveal units; mark a short lead
+// line with `data-type` to have it typed out character by character.
+const repos = await fetchRepos();
+const year = new Date().getFullYear();
+
+// Notable clients — names + a factual public descriptor of each (not their
+// confidential work) + a link so the relationship is verifiable.
+const clients = [
+  ["0x Protocol", "DeFi trading infrastructure", "https://0x.org"],
+  ["Immunefi", "Web3 security & bug bounty", "https://immunefi.com"],
+  ["Fuel Network", "Modular execution layer", "https://fuel.network"],
+  ["Bittensor", "Decentralized AI network", "https://bittensor.com"],
+  ["Fairside", "Onchain coverage protocol", "https://www.fairside.io"],
+];
+
+const facts = [
+  ["role", "two senior engineers"],
+  ["focus", "systems architecture · low-level efficiency"],
+  ["domains", "blockchain · AI efficiency · security-first"],
+  ["proof", "500+ audits behind us"],
+  ["stack", "Rust · C · Solidity · Sway"],
+];
+
+// Capability pillars for the approach section. Each is a direct child of the
+// template so it reveals on its own as the terminal writes the section out.
+const pillars = [
+  [
+    "01",
+    "systems architecture",
+    "Architecting novel protocols and systems from the ground up — data models, ownership, failure modes — so the hard parts are decided before a line is written.",
+  ],
+  [
+    "02",
+    "low-level efficiency",
+    "Performance-critical engineering in Rust and C, down to the compiler and tooling level, where correctness and efficiency are the same problem.",
+  ],
+  [
+    "03",
+    "blockchain & security",
+    "Security-oriented development across Ethereum, Solidity and Sway, built with an auditor's eye for what breaks.",
+  ],
+  [
+    "04",
+    "AI efficiency",
+    "Custom-made tooling that makes AI systems faster and cheaper to run — and helps LLMs produce better code.",
+  ],
+];
+---
+
+<div hidden>
+  <template data-section="whoami">
+    <p data-type class="text-ink">Ourovoros — a two-person developers collective.</p>
+    <p class="max-w-2xl text-muted">
+      We specialize in the architecture of systems and low-level efficiency —
+      security-oriented development, deep blockchain expertise, and AI
+      efficiency built on custom-made tools. We turn novel ideas into correct,
+      efficient systems, and the developer tooling around them.
+    </p>
+    <div class="mt-4 space-y-1">
+      {
+        facts.map(([k, v]) => (
+          <p>
+            <span class="inline-block w-20 text-faint">{k}</span>
+            <span class="text-accent">{v}</span>
+          </p>
+        ))
+      }
+    </div>
+    <p class="mt-5 text-faint">
+      › select <span class="text-muted">approach</span>,
+      <span class="text-muted">tooling</span>,
+      <span class="text-muted">team</span> or
+      <span class="text-muted">contact</span> to continue.
+    </p>
+  </template>
+
+  <template data-section="approach">
+    <p data-type class="text-ink">From audit to build.</p>
+    <p class="max-w-2xl text-muted">
+      We spent years auditing protocols across Ethereum and other chains. Today
+      we apply that same discipline to building software and the tooling around
+      it.
+    </p>
+    {
+      pillars.map(([no, title, body]) => (
+        <div class="mt-4 max-w-2xl border-l border-line pl-4">
+          <p>
+            <span class="text-accent">{no}</span>{" "}
+            <span class="text-ink">{title}</span>
+          </p>
+          <p class="text-muted">{body}</p>
+        </div>
+      ))
+    }
+  </template>
+
+  <template data-section="tooling">
+    <p data-type class="text-ink">Open-source tooling — public on GitHub.</p>
+    <p class="text-faint">
+      ourovoros-io · {repos.length} repositories · every claim is a link.
+    </p>
+    <div class="mt-4 space-y-1.5">
+      {
+        repos.map((r) => (
+          <a
+            href={r.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group grid grid-cols-[1fr_auto] items-baseline gap-x-4 gap-y-0.5 border-b border-line/50 pb-1.5 sm:grid-cols-[14rem_4rem_1fr]"
+          >
+            <span class="text-ink transition-colors group-hover:text-accent">
+              {r.name}
+            </span>
+            <span class="text-faint max-sm:hidden">{r.language ?? "—"}</span>
+            <span class="flex items-baseline gap-3 text-muted">
+              {r.stars > 0 && <span class="text-accent">★ {r.stars}</span>}
+              <span class="text-muted">{r.description}</span>
+            </span>
+          </a>
+        ))
+      }
+    </div>
+    <p class="mt-4 text-faint">→ github.com/ourovoros-io</p>
+  </template>
+
+  <template data-section="clients">
+    <p data-type class="text-ink">Selected clients.</p>
+    <p class="text-faint">Teams we have built for and worked alongside.</p>
+    <div class="mt-4 space-y-1.5">
+      {
+        clients.map(([name, desc, url]) => (
+          <a
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group grid grid-cols-[1fr] items-baseline gap-x-4 gap-y-0.5 border-b border-line/50 pb-1.5 sm:grid-cols-[14rem_1fr]"
+          >
+            <span class="text-ink transition-colors group-hover:text-accent">
+              {name}
+            </span>
+            <span class="text-muted">{desc}</span>
+          </a>
+        ))
+      }
+    </div>
+  </template>
+
+  <template data-section="team">
+    <p data-type class="text-ink">The collective — two engineers, no layers.</p>
+    <div class="mt-4 grid gap-6 md:grid-cols-2">
+      {TEAM.map((m) => <TeamCard member={m} />)}
+    </div>
+  </template>
+
+  <template data-section="contact">
+    <p data-type class="text-ink">Have something hard to build?</p>
+    <p class="max-w-xl text-muted">
+      Tell us the problem and the constraints. We will tell you honestly whether
+      we are the right people for it.
+    </p>
+    <p class="mt-4">
+      <span class="text-faint">$ mail</span>
+      <a
+        href="mailto:admin@ourovoros.io"
+        class="text-accent underline-offset-4 hover:underline">admin@ourovoros.io</a
+      >
+    </p>
+    <p class="mt-6 text-faint">© {year} Ourovoros.io</p>
+  </template>
+</div>

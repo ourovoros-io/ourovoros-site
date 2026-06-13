@@ -1,0 +1,36 @@
+---
+import type { TeamMember } from "../data/team";
+import portraitA from "../data/ascii/portrait-a.txt?raw";
+import portraitB from "../data/ascii/portrait-b.txt?raw";
+
+interface Props {
+  member: TeamMember;
+}
+
+const { member } = Astro.props;
+const PORTRAITS: Record<"a" | "b", string> = { a: portraitA, b: portraitB };
+const portrait = PORTRAITS[member.portrait];
+---
+
+<div class="portrait-card min-w-0 rounded-md border border-line p-4">
+  <pre
+    class="portrait w-full max-w-full overflow-hidden text-accent/85 select-none"
+    aria-label={`ASCII portrait of ${member.name}`}
+  >{portrait}</pre>
+  <p class="mt-3 text-ink">{member.name}</p>
+  <p class="text-faint">@{member.handle}</p>
+  <div class="mt-3 flex gap-4">
+    {
+      member.links.map((link) => (
+        <a
+          href={link.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-muted underline-offset-4 transition-colors hover:text-accent hover:underline"
+        >
+          {link.label} ↗
+        </a>
+      ))
+    }
+  </div>
+</div>

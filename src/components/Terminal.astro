@@ -1,0 +1,65 @@
+---
+import { SECTIONS } from "../data/nav";
+
+// The terminal pane. The output area (#term-output) is populated by the
+// interaction script; everything here is the chrome around it. The prompt at
+// the bottom is decorative — navigation happens via the sidebar / mobile chips.
+---
+
+<section class="flex min-w-0 flex-1 flex-col bg-bg">
+  {/* Mobile nav: the sidebar is desktop-only, so sections live in a scrollable
+     chip row here. */}
+  <div class="border-b border-line px-4 py-3 md:hidden">
+    <div class="flex items-center gap-2 font-mono text-sm tracking-[0.2em] text-ink">
+      <span class="size-2 rounded-full bg-accent"></span>OUROVOROS
+    </div>
+    <nav
+      class="mt-3 flex gap-1.5 overflow-x-auto pb-1"
+      aria-label="Sections"
+    >
+      {
+        SECTIONS.map((s) => (
+          <a
+            href={`#${s.id}`}
+            data-nav={s.id}
+            class="shrink-0 rounded-md border border-line px-3 py-1.5 font-mono text-xs text-muted transition-colors aria-[current=page]:border-accent/40 aria-[current=page]:bg-accent/10 aria-[current=page]:text-accent"
+          >
+            {s.label}
+          </a>
+        ))
+      }
+    </nav>
+  </div>
+
+  {/* Title bar */}
+  <div
+    class="flex items-center gap-4 border-b border-line px-4 py-2.5 max-md:hidden"
+  >
+    <div class="flex items-center gap-2" aria-hidden="true">
+      <span class="size-3 rounded-full bg-[#ff5f56]/80"></span>
+      <span class="size-3 rounded-full bg-[#ffbd2e]/80"></span>
+      <span class="size-3 rounded-full bg-[#27c93f]/80"></span>
+    </div>
+    <p class="flex-1 text-center font-mono text-xs text-faint">
+      ourovoros@io: <span id="term-title-path">~</span> — zsh
+    </p>
+    <div class="w-14" aria-hidden="true"></div>
+  </div>
+
+  {/* Output */}
+  <div
+    id="term-output"
+    class="term-scroll flex-1 overflow-y-auto px-5 py-6 font-mono text-[13.5px] leading-relaxed sm:px-8 sm:text-sm"
+    aria-live="polite"
+  >
+  </div>
+
+  {/* Decorative prompt */}
+  <div class="border-t border-line px-5 py-3.5 font-mono text-[13.5px] sm:px-8 sm:text-sm">
+    <span class="text-accent">ourovoros@io</span><span class="text-muted"
+      > ~/</span
+    ><span id="term-cwd" class="text-muted">whoami</span><span class="text-faint"
+    > %</span
+    ><span class="caret" aria-hidden="true"></span>
+  </div>
+</section>

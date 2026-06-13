@@ -1,24 +1,18 @@
 ---
 import Base from "../layouts/Base.astro";
-import Nav from "../components/Nav.astro";
-import Hero from "../components/Hero.astro";
-import ProofBar from "../components/ProofBar.astro";
-import Pillars from "../components/Pillars.astro";
-import ToolingGrid from "../components/ToolingGrid.astro";
-import Collective from "../components/Collective.astro";
-import Contact from "../components/Contact.astro";
-import Footer from "../components/Footer.astro";
+import Sidebar from "../components/Sidebar.astro";
+import Terminal from "../components/Terminal.astro";
+import Sections from "../components/Sections.astro";
 ---
 
 <Base>
-  <Nav />
-  <main>
-    <Hero />
-    <ProofBar />
-    <Pillars />
-    <ToolingGrid limit={6} />
-    <Collective />
-    <Contact />
-  </main>
-  <Footer />
+  <div class="flex h-dvh overflow-hidden">
+    <Sidebar />
+    <Terminal />
+  </div>
+  <Sections />
 </Base>
+
+<script>
+  import "../scripts/terminal";
+</script>

@@ -5,7 +5,6 @@
 export interface TeamMember {
   name: string;
   handle: string;
-  bio: string;
   portrait: "a" | "b";
   links: { label: string; href: string }[];
 }
@@ -14,18 +13,25 @@ export const TEAM: TeamMember[] = [
   {
     name: "Georgios Delkos",
     handle: "georgiosdelkos",
-    bio: "Systems and protocol engineering. Background in security review across Ethereum and other chains.",
     portrait: "a",
     links: [
       { label: "GitHub", href: "https://github.com/georgiosdelkos" },
-      { label: "Org", href: "https://github.com/ourovoros-io" },
+      {
+        label: "LinkedIn",
+        href: "https://www.linkedin.com/in/georgios-delkos-37355a19a/",
+      },
     ],
   },
   {
-    name: "Camden",
-    handle: "camden",
-    bio: "Low-level and compiler-adjacent engineering. Builds the tooling that the rest of the work runs on.",
+    name: "Camden Smallwood",
+    handle: "camden-smallwood",
     portrait: "b",
-    links: [{ label: "GitHub", href: "https://github.com/ourovoros-io" }],
+    links: [
+      { label: "GitHub", href: "https://github.com/ourovoros-io" },
+      {
+        label: "LinkedIn",
+        href: "https://www.linkedin.com/in/camden-smallwood-b828aa161/",
+      },
+    ],
   },
 ];

@@ -1,0 +1,95 @@
+---
+import Base from "../layouts/Base.astro";
+import logo from "../data/ascii/logo.txt?raw";
+
+// Statutory company disclosures required by Greek law (Γ.Ε.ΜΗ. — General
+// Commercial Registry, art. 26 Ν.4919/2022): every entity must publish these
+// fields at a stable public URL. Content is authoritative and Greek-first by
+// legal requirement; values are transcribed from the ΑΑΔΕ activity certificate.
+// Keep this page reachable at /company — the URL is registered with Γ.Ε.ΜΗ.
+const fields: [string, string][] = [
+  ["Επωνυμία", "ΟΥΡΟΒΟΡΟΣ ΜΟΝΟΠΡΟΣΩΠΗ Ι.Κ.Ε."],
+  ["Διακριτικός τίτλος", "OUROVOROS"],
+  ["Νομική μορφή", "Μονοπρόσωπη Ιδιωτική Κεφαλαιουχική Εταιρεία (Ι.Κ.Ε.)"],
+  ["Αριθμός Γ.Ε.ΜΗ.", "164284406000"],
+  ["Ημ/νία εγγραφής Γ.Ε.ΜΗ.", "20/05/2022"],
+  ["Έδρα", "Πανόραμα Θεσσαλονίκης"],
+  [
+    "Ταχυδρομική διεύθυνση",
+    "Κάβδα Περικλέους 24, Τ.Κ. 552 36, Πανόραμα, Θεσσαλονίκη, Ελλάδα",
+  ],
+  ["Εταιρικό κεφάλαιο", "5.000,00 €"],
+  ["Κατάσταση εταιρείας", "Ενεργή — δεν βρίσκεται σε λύση ή εκκαθάριση"],
+  ["Αρμόδιο Πρωτοδικείο", "Πρωτοδικείο Θεσσαλονίκης"],
+  ["Α.Φ.Μ.", "801837924"],
+  ["Αρμόδια Δ.Ο.Υ.", "Δ.Ο.Υ. Καλαμαριάς"],
+  [
+    "Αριθμός καταστατικού",
+    "109287 — Επαγγελματικό Επιμελητήριο Θεσσαλονίκης (20/05/2022)",
+  ],
+  ["Διάρκεια εταιρείας", "έως 20/05/2037"],
+  ["Μοναδικός εταίρος & διαχειριστής", "Γεώργιος Δελκός"],
+];
+
+const email = "admin@ourovoros.io";
+---
+
+<Base
+  title="Εταιρικά στοιχεία — Ουρόβορος Μονοπρόσωπη Ι.Κ.Ε."
+  description="Στοιχεία δημοσιότητας Γ.Ε.ΜΗ. της εταιρείας ΟΥΡΟΒΟΡΟΣ ΜΟΝΟΠΡΟΣΩΠΗ Ι.Κ.Ε. — επωνυμία, έδρα, Α.Φ.Μ., κεφάλαιο και αρμόδιες αρχές."
+>
+  <main class="mx-auto min-h-dvh max-w-3xl px-5 py-12 sm:px-8 sm:py-16">
+    <a
+      href="/"
+      class="inline-flex items-center gap-2 font-mono text-xs text-faint transition-colors hover:text-accent"
+      >‹ cd ~</a
+    >
+
+    <header class="mt-8 flex flex-col items-center border-b border-line pb-8 text-center">
+      <pre class="legal-mark text-accent/90 select-none" aria-hidden="true">{logo}</pre>
+      <h1 class="mt-4 font-mono text-sm font-medium tracking-[0.3em] text-ink [margin-right:-0.3em]">
+        OUROVOROS
+      </h1>
+      <p class="mt-3 text-lg text-ink">Εταιρικά στοιχεία</p>
+      <p class="mt-1 font-mono text-[11px] tracking-[0.18em] text-faint uppercase">
+        Στοιχεία δημοσιότητας Γ.Ε.ΜΗ.
+      </p>
+    </header>
+
+    <dl class="mt-8 divide-y divide-line/60">
+      {
+        fields.map(([label, value]) => (
+          <div class="grid gap-1 py-3 sm:grid-cols-[16rem_1fr] sm:gap-4">
+            <dt class="font-mono text-xs text-faint sm:pt-0.5">{label}</dt>
+            <dd class="text-ink">{value}</dd>
+          </div>
+        ))
+      }
+      <div class="grid gap-1 py-3 sm:grid-cols-[16rem_1fr] sm:gap-4">
+        <dt class="font-mono text-xs text-faint sm:pt-0.5">Επικοινωνία (email)</dt>
+        <dd>
+          <a
+            href={`mailto:${email}`}
+            class="text-accent underline-offset-4 hover:underline">{email}</a
+          >
+        </dd>
+      </div>
+    </dl>
+
+    <p class="mt-8 max-w-2xl text-sm text-muted">
+      Η σελίδα δημοσιεύεται σύμφωνα με τις υποχρεώσεις δημοσιότητας του Γενικού
+      Εμπορικού Μητρώου (Γ.Ε.ΜΗ.).
+    </p>
+  </main>
+</Base>
+
+<style>
+  /* Mirrors the sidebar's `.logo-mark`: the ASCII ouroboros renders at a fixed
+     7px so the 24-line mark stays compact and the header reads as the brand. */
+  .legal-mark {
+    font-size: 7px;
+    line-height: 1;
+    font-family: var(--font-mono);
+    white-space: pre;
+  }
+</style>
